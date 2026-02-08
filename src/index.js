@@ -1,4 +1,8 @@
+
+import "dotenv/config";
+
 import express, { json } from "express";
+console.log("DB URL exists:", !!process.env.DATABASE_URL);
 
 const app =express();
 const port=8000;
