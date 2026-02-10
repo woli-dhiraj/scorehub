@@ -8,6 +8,13 @@
       "when": 1770523452422,
       "tag": "0000_peaceful_orphan",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1770655475176,
+      "tag": "0001_optimal_colossus",
+      "breakpoints": true
     }
   ]
 }

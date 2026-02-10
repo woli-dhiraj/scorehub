@@ -2,14 +2,14 @@
 import { pgEnum,serial, text, pgTable, timestamp, integer, jsonb } from "drizzle-orm/pg-core";
 
 
-export const matchStatus=pgEnum('match_status',['Schedule','Live','Finished']);
+export const matchStatus=pgEnum('match_status',['Scheduled','Live','Finished']);
 
 export const matches=pgTable('matches',{
     id:serial('id').primaryKey(),
     sport:text('sport').notNull(),
     homeTeam:text("home_team").notNull(),
     awayTeam:text('away_team').notNull(),
-    status:matchStatus('status').notNull().default("Schedule"),
+    status:matchStatus('status').notNull().default("Scheduled"),
     startTime:timestamp('start_time'),
     endTime:timestamp('end_time'),
     homeScore:integer('home_score').notNull().default(0),
