@@ -44,6 +44,9 @@ matchRouter.post('/v1',async (req,res)=>{
             awayScore:awayScore??0,
             status:getMatchStatus(startTime,endTime)
         }).returning();
+        if(res.app.locals.broadCastMatchCreated){
+            res.app.locals.broadCastMatchCreated(event)
+        }
         res.status(201).json({data:event})
         
     } catch (error) {
