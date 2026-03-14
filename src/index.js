@@ -4,6 +4,7 @@ import http from 'http'
 import express from "express";
 import { matchRouter } from "./routes/matches.js";
 import { attachWebSocketServe } from "./ws/server.js";
+import {securityMiddleware} from "./arcjet.js";
 console.log("DB URL exists:", !!process.env.DATABASE_URL);
 
 const app= express();
@@ -16,7 +17,7 @@ const server=http.createServer(app);
 app.get('/',(req,res)=>{
   res.send("hello i am server")
 })
-
+app.use(securityMiddleware())
 app.use('/matches',matchRouter)
 
 const {broadCastMatchCreated}=attachWebSocketServe(server);
